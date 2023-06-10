@@ -28,8 +28,9 @@ FallRock:
     - random 0.3
   Action: SpawnMob FallRock
 MobGround:
+  Group: Mob
   Conditions:
-    - nearCurrentSpawned 20 false
+    - groupNearCurrentSpawned 20 false
     - nearMob 20 false
     - movable true
     - nearBlock Down,1,Grass_Block
@@ -37,8 +38,9 @@ MobGround:
     - random 0.3
   Action: SpawnLayerMob Ground
 MobFly:
+  Group: Mob
   Conditions:
-    - nearCurrentSpawned 20 false
+    - groupNearCurrentSpawned 20 false
     - nearMob 20 false
     - movable true
     - apart 30

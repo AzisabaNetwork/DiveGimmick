@@ -17,9 +17,14 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name = "dive"
+        url = "https://repo.azisaba.net/repository/maven-public/"
+    }
 }
 
 dependencies {
+    compileOnly "com.flora30:DiveLib:0.1.0-SNAPSHOT"
     compileOnly "io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
