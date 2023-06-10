@@ -1,0 +1,4 @@
+name: DiveGimmick
+version: '${version}'
+main: com.flora30.divegimmick.DiveGimmick
+api-version: 1.17
