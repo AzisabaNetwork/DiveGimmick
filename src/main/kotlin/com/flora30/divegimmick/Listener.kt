@@ -7,7 +7,6 @@ import com.flora30.divelib.data.gimmick.Gimmick
 import com.flora30.divelib.data.gimmick.GimmickLog
 import com.flora30.divelib.data.gimmick.GimmickObject
 import com.flora30.divelib.data.player.PlayerDataObject
-import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -67,7 +66,7 @@ class Listener: Listener {
     /**
      * 全ての条件がギミックに適しているか判定する
      */
-    fun checkAllConditions(gData: GData, gim: Gimmick): Boolean{
+    private fun checkAllConditions(gData: GData, gim: Gimmick): Boolean{
         for (con in gim.conditions){
             // 条件に合うか判定する
             if (!(con.check(gData))){
@@ -80,7 +79,7 @@ class Listener: Listener {
     /**
      * プレイヤーの周囲でランダムな水平座標を作る
      */
-    fun randomHorPos(player: Player): HorPos {
+    private fun randomHorPos(player: Player): HorPos {
         val location = player.location
 
         // 水平座標の差分をランダムに決める
@@ -89,4 +88,8 @@ class Listener: Listener {
 
         return HorPos(location.blockX + x, location.blockZ + z)
     }
+
+    /**
+     * 時間が経ったギミックを削除する
+     */
 }

@@ -8,7 +8,8 @@ Chest_Grass:
     - movable true
     - apart 30
     - random 1
-  Action: SpawnChest Grass
+  Actions:
+    - SpawnChest Grass
 Chest_Ruin:
   SpawnRate: 10
   Group: Chest
@@ -18,10 +19,12 @@ Chest_Ruin:
     - movable true
     - apart 30
     - random 0.4
-  Action: SpawnChest Ruin
+  Actions:
+    - SpawnChest Ruin
 FallRock:
   SpawnRate: 10
   Random: 0.3
+  LogTime: 60
   Conditions:
     - apart 30
     - movable true
@@ -29,25 +32,30 @@ FallRock:
     - nearPlayer 10 false
     - nearSpawned 20 false
     - nearCurrentSpawned 20 false
-  Action: SpawnMob FallRock
+  Actions:
+    - SpawnMob FallRock
 MobGround:
   SpawnRate: 10
   Group: Mob
+  Random: 0.3
+  LogTime: 60
   Conditions:
     - groupNearCurrentSpawned 20 false
     - nearMob 20 false
     - movable true
     - nearBlock Down 1 Grass_Block
     - apart 30
-    - random 0.3
-  Action: SpawnLayerMob Ground
+  Actions:
+    - SpawnLayerMob Ground
 MobFly:
   SpawnRate: 10
   Group: Mob
+  Random: 0.05
+  LogTime: 60
   Conditions:
     - groupNearCurrentSpawned 20 false
     - nearMob 20 false
     - movable true
     - apart 30
-    - random 0.05
-  Action: SpawnLayerMob Fly
+  Actions:
+    - SpawnLayerMob Fly
