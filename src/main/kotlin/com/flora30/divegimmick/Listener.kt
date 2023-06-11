@@ -7,16 +7,35 @@ import com.flora30.divelib.data.gimmick.Gimmick
 import com.flora30.divelib.data.gimmick.GimmickLog
 import com.flora30.divelib.data.gimmick.GimmickObject
 import com.flora30.divelib.data.player.PlayerDataObject
+import org.bukkit.ChatColor
 import org.bukkit.Location
+import org.bukkit.command.Command
+import org.bukkit.command.CommandExecutor
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerMoveEvent
 
-class Listener: Listener {
+class Listener: Listener,CommandExecutor {
     val gimmickTick = 10
     val range = 40
     data class HorPos(val x: Int,val z: Int)
+
+
+    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
+        if (sender is Player){
+            if (command.name == "gimmick"){
+                val subCommand = if(args.isEmpty()) "" else args[0]
+                if (subCommand == "reload"){
+                    Config.load()
+                    sender.sendMessage("${ChatColor.GRAY}ギミックを再読み込みしました")
+                    return true
+                }
+            }
+        }
+        return false
+    }
 
     @EventHandler
     fun onPlayerMove(e: PlayerMoveEvent){
@@ -39,7 +58,7 @@ class Listener: Listener {
             for (i in 0..gim.spawnRate){
                 // 水平座標を取得する
                 val horPos = randomHorPos(player)
-                val gData = GData(player, Location(player.world, horPos.x.toDouble(),30.0, horPos.z.toDouble()))
+                val gData = GData(player, Location(player.world, horPos.x.toDouble(),30.0, horPos.z.toDouble()), gimID)
                 // ギミックに適した場所を探す
                 for(y in 30..230){
                     gData.location.y = y.toDouble()
@@ -89,7 +108,4 @@ class Listener: Listener {
         return HorPos(location.blockX + x, location.blockZ + z)
     }
 
-    /**
-     * 時間が経ったギミックを削除する
-     */
 }

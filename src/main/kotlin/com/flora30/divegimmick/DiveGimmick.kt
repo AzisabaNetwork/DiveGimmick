@@ -7,7 +7,10 @@ import org.bukkit.plugin.java.JavaPlugin
 class DiveGimmick : JavaPlugin() {
     override fun onEnable() {
         server.pluginManager.registerEvents(Listener(),this)
+        server.getPluginCommand("gimmick")!!.setExecutor(Listener())
         server.scheduler.scheduleSyncRepeatingTask(this, { removeOldLogs() },20,20 )
+
+        Config.load()
     }
 
     override fun onDisable() {

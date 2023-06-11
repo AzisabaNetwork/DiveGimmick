@@ -2,3 +2,10 @@ name: DiveGimmick
 version: '${version}'
 main: com.flora30.divegimmick.DiveGimmick
 api-version: 1.17
+commands:
+  gimmick:
+    permission-message: Unknown command. Type "/help" for help.
+    permission: divegimmick.*
+permissions:
+  divegimmick.*:
+    default: op
