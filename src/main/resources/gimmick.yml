@@ -3,7 +3,7 @@ Chest_Grass:
   SpawnRate: 10
   Group: Chest
   Conditions:
-    - NearSpawned 20 false
+    - NearMySpawned 20 false
     - NearBlock Down 1 Grass_Block
     - Movable true
     - Apart 30
@@ -14,7 +14,7 @@ Chest_Ruin:
   Group: Chest
   Random: 0.4
   Conditions:
-    - NearSpawned 20 false
+    - NearMySpawned 20 false
     - nearBlock Down 1 Stone_Brick,Brick
     - movable true
     - apart 30

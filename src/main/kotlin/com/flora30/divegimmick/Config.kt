@@ -24,7 +24,7 @@ object Config {
             val spawnRate = section.getInt("SpawnRate",1)
             val group = section.getString("Group",null)
             val random = section.getDouble("Random",1.0)
-            val logTime = section.getInt("LogTime",20)
+            val logTime = section.getInt("LogTime",0)
 
             val conditions = ArrayList<GCondition>()
             for (con in section.getStringList("Conditions")){

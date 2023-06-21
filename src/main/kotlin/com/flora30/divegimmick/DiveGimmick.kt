@@ -18,8 +18,8 @@ class DiveGimmick : JavaPlugin() {
     }
 
     // 時間が経過したログを削除する
-    fun removeOldLogs(){
-        for (logs in GimmickObject.INSTANCE.layerLogMap.values){
+    fun removeOldLogs() {
+        for (logs in GimmickObject.INSTANCE.layerLogMap.values) {
             // ログが出来てからの経過時間 > ギミック固有の削除までの時間
             logs.removeIf { DiveLib.plugin.lagTime - it.time > GimmickObject.INSTANCE.gimmickMap[it.gimmickID]!!.logTime * 1000 }
         }
